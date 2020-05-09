@@ -3,6 +3,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/_models/user';
+import { Photo } from 'src/app/_models/photo';
 
 /* const httpOptions = {
   headers: new HttpHeaders({
@@ -28,6 +29,12 @@ getUser(id): Observable<User> {
 }
 updateUser(id: number, user: User) {
   return this.http.put<User>(this.baseUrl + 'users/' + id, user);
+}
+setMainPhoto(userId: number, id: number) {
+  return this.http.post<Photo>(this.baseUrl + 'users/' + userId + '/photos/' + id + '/setMain', {});
+}
+deletePhoto(userId: number, id: number) {
+  return this.http.delete<Photo>(this.baseUrl + 'users/' + userId + '/photos/' + id );
 }
 
 }
