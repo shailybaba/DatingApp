@@ -35,6 +35,7 @@ import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { AlertifyService } from 'src/_services/alertify.service';
 import { UserService } from 'src/_services/user.service';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
+import { ListsResolver } from './_resolvers/lists.resolvers';
 
 export function getToken() {
   return localStorage.getItem('token');
@@ -94,6 +95,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       MemberDetailResolver,
       MemberEditResolver,
       MemberListResolver,
+      ListsResolver,
       { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }
     ],
    bootstrap: [
