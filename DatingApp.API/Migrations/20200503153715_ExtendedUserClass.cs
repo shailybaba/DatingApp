@@ -92,7 +92,7 @@ namespace DatingApp.API.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Photo");
+                name: "Photos");
 
             migrationBuilder.DropColumn(
                 name: "City",

@@ -36,6 +36,8 @@ import { AlertifyService } from 'src/_services/alertify.service';
 import { UserService } from 'src/_services/user.service';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { ListsResolver } from './_resolvers/lists.resolvers';
+import { MessagesResolver } from './_resolvers/messages.resolver';
+import { MessageThreadComponent } from './members/message-thread/message-thread.component';
 
 export function getToken() {
   return localStorage.getItem('token');
@@ -61,7 +63,8 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       MemberCardComponent,
       MemberDetailComponent,
       MemberEditComponent,
-      PhotoEditorComponent
+      PhotoEditorComponent,
+      MessageThreadComponent
    ],
    imports: [
       BrowserModule,
@@ -96,6 +99,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       MemberEditResolver,
       MemberListResolver,
       ListsResolver,
+      MessagesResolver,
       { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }
     ],
    bootstrap: [
