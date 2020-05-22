@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DatingApp.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    // Remove SQLSERVER from classname
-    partial class DataContextModelSnapshotSQLSERVER : ModelSnapshot
+    // Remove SQLITE from classname
+    partial class DataContextModelSnapshotSQLITE : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
