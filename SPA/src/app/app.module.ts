@@ -13,6 +13,9 @@ import { NgxGalleryModule } from 'ngx-gallery';
 import { FileUploadModule } from 'ng2-file-upload';
 import {TimeAgoPipe} from 'time-ago-pipe';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+// import { ModalModule } from 'ngx-bootstrap/modal/modal.module';
+// import { ModalModule } from 'ngx-bootstrap/modal/ngx-bootstrap-modal';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -38,6 +41,12 @@ import { PhotoEditorComponent } from './members/photo-editor/photo-editor.compon
 import { ListsResolver } from './_resolvers/lists.resolvers';
 import { MessagesResolver } from './_resolvers/messages.resolver';
 import { MessageThreadComponent } from './members/message-thread/message-thread.component';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
+import { HasRoleDirective } from './_directives/hasRole.directive';
+import { AdminManagementComponent } from './admin/admin-management/admin-management.component';
+import { PhotoManagementComponent } from './admin/photo-management/photo-management.component';
+import { AdminService } from 'src/_services/admin.service';
+import { RolesModalComponent } from './admin/roles-modal/roles-modal.component';
 
 export function getToken() {
   return localStorage.getItem('token');
@@ -64,7 +73,12 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       MemberDetailComponent,
       MemberEditComponent,
       PhotoEditorComponent,
-      MessageThreadComponent
+      MessageThreadComponent,
+      AdminPanelComponent,
+      HasRoleDirective,
+      AdminManagementComponent,
+      PhotoManagementComponent,
+      RolesModalComponent
    ],
    imports: [
       BrowserModule,
@@ -76,6 +90,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       BsDropdownModule.forRoot(),
       TabsModule.forRoot(),
       ButtonsModule.forRoot(),
+      ModalModule.forRoot(),
       NgxGalleryModule,
       PaginationModule.forRoot(),
       FileUploadModule,
@@ -100,7 +115,11 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       MemberListResolver,
       ListsResolver,
       MessagesResolver,
+      AdminService,
       { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }
+    ],
+    entryComponents: [
+      RolesModalComponent
     ],
    bootstrap: [
       AppComponent
